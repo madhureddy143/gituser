@@ -10,12 +10,20 @@ pipeline{
 				echo "my name is ${params.name}"
 				}
 			}
-		stage('test'){
-			steps{
-				echo "test stage enabling polling"
-				bat 'set'
+		parallel{
+			stage('test1'){
+				steps{
+					echo "test stage enabling polling"
+					echo "running test 1"
+					bat 'set'
+					}
 				}
-			}
+			stage('test2'){
+				steps{
+					echo "running test 2 parallel stage"
+					}
+				}
+		}
 		stage('deploy'){
 			steps{
 				echo "deploy stage"
