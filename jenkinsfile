@@ -6,7 +6,11 @@ pipeline{
 	stages{
 		stage('svn checkout'){
 			steps{
-				checkout scm
+				checkout([$class: 'GitSCM', 
+						  branches: [[name: '*/main']],
+						  extensions: [], 
+						  userRemoteConfigs: [[url: 'https://github.com/madhureddy143/M-benz_assessment2.git']]]
+				)
 			}
 		}			
 		stage('build'){
