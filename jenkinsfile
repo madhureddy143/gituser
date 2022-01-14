@@ -9,11 +9,13 @@ pipeline{
 			stage('test'){
 				steps{
 					echo "test stage enabling polling"
+					bat 'set'
 					}
 				}
 			stage('deploy'){
 				steps{
 					echo "deploy stage"
+					echo "current build number is ${env.BUILD_NUMBER}"
 					}
 				}
 			}
