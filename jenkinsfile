@@ -26,7 +26,7 @@ pipeline{
 	post {
 		always {
 			mail to: madhu.vm111@gmail.com, subject: "status of the build ${env.BUILD_STATUS}"
-			
-		
+		}
+	}
 }
 			
