@@ -2,26 +2,31 @@ pipeline{
 	agent any
 	parameters {
 		string (name: 'name', defaultvalue: 'madhu',description: 'name of the user')
-		}
-		stages{
-			stage('build'){
-				steps{
-					echo "build stage"
-					}
-				}
-			stage('test'){
-				steps{
-					echo "test stage enabling polling"
-					bat 'set'
-					}
-				}
-			stage('deploy'){
-				steps{
-					echo "deploy stage"
-					echo "current build number is ${env.BUILD_NUMBER}"
-					}
+	}
+	stages{
+		stage('build'){
+			steps{
+				echo "build stage"
+				echo "my name is ${params.name}"
 				}
 			}
-		
+		stage('test'){
+			steps{
+				echo "test stage enabling polling"
+				bat 'set'
+				}
+			}
+		stage('deploy'){
+			steps{
+				echo "deploy stage"
+				echo "current build number is ${env.BUILD_NUMBER}"
+			}
+		}
 	}
+	post {
+		always {
+			mail to: madhu.vm111@gmail.com, subject: "status of the build ${env.BUILD_STATUS}"
+			
+		
+}
 			
