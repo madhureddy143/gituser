@@ -4,6 +4,11 @@ pipeline{
 		string (name: 'name', defaultValue: 'madhu',description: 'name of the user')
 	}
 	stages{
+		stage('svn checkout'){
+			steps{
+				checkout scm
+			}
+		}			
 		stage('build'){
 			steps{
 				echo "build stage"
