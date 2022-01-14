@@ -1,5 +1,8 @@
 pipeline{
 	agent any
+	parameters {
+		string (name: 'name', defaultvalue: 'madhu',description: 'name of the user')
+		}
 		stages{
 			stage('build'){
 				steps{
