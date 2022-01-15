@@ -17,8 +17,10 @@ pipeline{
 		}
 		stage('suing shared library'){
 			steps{
-				log.info 'starting'
-				log.warning 'its a warning'
+				script{
+					log.info 'starting'
+					log.warning 'its a warning'
+				}
 				}
 			}
 		stage('build'){
