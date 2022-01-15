@@ -1,3 +1,5 @@
+@Library('slibrary')
+
 pipeline{
 	agent any
 	parameters {
@@ -12,7 +14,13 @@ pipeline{
 						  userRemoteConfigs: [[url: 'https://github.com/madhureddy143/M-benz_assessment2.git']]]
 				)
 			}
-		}			
+		}
+		stage('suing shared library'){
+			steps{
+				log.info 'starting'
+				log.warning 'its a warning'
+				}
+			}
 		stage('build'){
 			steps{
 				echo "build stage"
