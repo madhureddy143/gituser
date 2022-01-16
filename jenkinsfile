@@ -1,5 +1,4 @@
 @Library('slibrary') _
-@Library('slibrary') import com.benz.checkOut
 
 pipeline{
 	agent any
