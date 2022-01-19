@@ -1,3 +1,5 @@
+import groovy.json.JsonSlurper
+
 pipeline{
 	agent any
 	stages{
@@ -14,6 +16,9 @@ pipeline{
 		stage('reportgen'){
 			steps{
 				bat "echo here report will be generated"
+				URL apiUrl = "https://reqres.in/api/users?page=1".toURL()
+                List json = new JsonSlurper().parse(apiUrl.newReader())
+				json.each { println it }
 			}
 		}
 		stage('testing stage'){
