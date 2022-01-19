@@ -17,9 +17,9 @@ pipeline{
 			steps{
 				bat "echo here report will be generated"
 				script{
-				   URL apiUrl = "https://reqres.in/api/users?page=1".toURL()
-                   List json = new JsonSlurper().parse(apiUrl.newReader())
-				   json.each { println it }
+				   final String url = "https://reqres.in/api/users?page=1"
+				   final String response = bat(script: curl -s $url).trim()
+				   echo response
 				}
 			}
 		}
