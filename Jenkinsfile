@@ -18,21 +18,19 @@ pipeline{
 		}
 		stage('testing stage'){
 			parallel{
-				stages{
-					stage('unit test'){
-						steps{
-							bat "echo unit test stage"
-						}
+				stage('unit test'){
+					steps{
+						bat "echo unit test stage"
 					}
-					stage('smoke test'){
-						steps{
-							bat "echo smoke test stage"
-						}
+				}
+				stage('smoke test'){
+					steps{
+						bat "echo smoke test stage"
 					}
-					stage('integration test'){
-						steps{
-							bat "echo unit test stage"
-						}
+				}
+				stage('integration test'){
+					steps{
+						bat "echo unit test stage"
 					}
 				}
 			}
