@@ -16,7 +16,7 @@ pipeline{
 				bat "echo here report will be generated"
 			}
 		}
-		stage('testing stage){
+		stage('testing stage'){
 			parallel{
 				stages{
 					stage('unit test'){
