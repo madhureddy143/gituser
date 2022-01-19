@@ -18,7 +18,7 @@ pipeline{
 				bat "echo here report will be generated"
 				script{
 				   final String url = "https://reqres.in/api/users?page=1"
-				   final String response = bat(script: curl -s $url).trim()
+				   final String response = sh(script: "curl -s $url", returnStdout: true).trim()
 				   echo response
 				}
 			}
